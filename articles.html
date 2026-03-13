@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Repository | Brandon T. Malaba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- YOUR EXISTING STYLES --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background: #0f172a; color: #f8fafc; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background: #0f172a; padding: 30px 0; border-bottom: 3px solid #D4AF37; text-align: center; }
+        .gold-text { color: #D4AF37 !important; font-family: 'Playfair Display', serif; }
+        nav { background: #1e293b; padding: 15px 0; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        nav ul { list-style: none; display: inline-flex; gap: 30px; }
+        nav ul li a { text-decoration: none; color: #cbd5e1; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: #D4AF37; }
+        
+        .container { flex: 1; padding: 60px 10%; background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-attachment: fixed; }
+        .repo-header { margin-bottom: 50px; border-left: 4px solid #D4AF37; padding-left: 20px; }
+        .repo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        
+        .doc-card { background: #111827; border: 1px solid rgba(212, 175, 55, 0.2); padding: 40px; border-radius: 4px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .doc-card:hover { border-color: #D4AF37; transform: translateY(-8px); background: rgba(212, 175, 55, 0.03); }
+        .doc-category { font-size: 0.65rem; text-transform: uppercase; color: #D4AF37; letter-spacing: 2px; margin-bottom: 15px; font-weight: 800; }
+        .doc-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 20px; line-height: 1.4; color: #fff; }
+        .doc-snippet { font-size: 0.85rem; color: #94a3b8; margin-bottom: 30px; line-height: 1.7; }
+        
+        /* --- NEW PREVIEW STYLES --- */
+        .btn-view { color: #D4AF37; text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 4px; align-self: flex-start; transition: 0.3s; cursor: pointer; border-top: none; border-left: none; border-right: none; background: transparent; }
+        .btn-view:hover { border-color: #D4AF37; padding-left: 5px; }
+
+        /* Modal Overlay */
+        .preview-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 6, 23, 0.95); z-index: 2000; align-items: center; justify-content: center; padding: 40px; }
+        
+        /* Modal Window */
+        .preview-window { width: 100%; max-width: 1000px; height: 90vh; background: #1e293b; border: 1px solid #D4AF37; border-radius: 4px; display: flex; flex-direction: column; position: relative; }
+        
+        .preview-header { padding: 15px 25px; background: #111827; border-bottom: 1px solid rgba(212, 175, 55, 0.2); display: flex; justify-content: space-between; align-items: center; }
+        .close-preview { color: #94a3b8; font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+        .close-preview:hover { color: #D4AF37; }
+
+        /* The PDF Viewer Container */
+        iframe { width: 100%; height: 100%; border: none; background: #fff; }
+
+        footer { background: #020617; text-align: center; padding: 40px; color: #64748b; font-size: 0.8rem; border-top: 1px solid rgba(212, 175, 55, 0.1); }
+    /* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    /* Reduce container padding so content has more room */
+    .container {
+        padding: 30px 5%;
+    }
+
+    /* Make the grid a single column */
+    .repo-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Adjust the card padding for smaller screens */
+    .doc-card {
+        padding: 25px;
+    }
+
+    /* Scale down the headers so they don't take up the whole screen */
+    header h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .repo-header h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Make the navigation links stack or wrap better */
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.75rem;
+    }
+
+    /* Ensure the Preview Modal takes up more width on mobile */
+    .preview-window {
+        width: 95%;
+        height: 85vh;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div id="previewOverlay" class="preview-overlay">
+        <div class="preview-window">
+            <div class="preview-header">
+                <span id="previewTitle" class="gold-text" style="font-size: 0.9rem; text-transform: uppercase;">Document Preview</span>
+                <span class="close-preview" onclick="closePreview()">&times; CLOSE</span>
+            </div>
+            <iframe id="pdfFrame" src=""></iframe>
+        </div>
+    </div>
+
+    <header><h1 class="gold-text" style="font-size: 2.2rem;">Brandon T. Malaba</h1></header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cv.html">Profile</a></li>
+            <li><a href="articles.html" class="active">Repository</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="repo-header">
+            <h2 class="gold-text">Legal Work Product</h2>
+            <p style="color: #94a3b8; font-size: 0.9rem;">Substantive jurisprudence and procedural drafting across South African legal frameworks.</p>
+        </div>
+
+        <div class="repo-grid">
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">SCA: Appellate Jurisprudence</span>
+                    <h4 class="doc-title">Janse De Wit v De Wit NO: Trust Sanctity Brief</h4>
+                    <p class="doc-snippet"><strong>Strategic Analysis:</strong> A deconstruction of Section 13 of the Trust Property Control Act. Analyzing the high jurisdictional threshold for judicial interference in testamentary freedom versus beneficiary acrimony.</p>
+                </div>
+                <button onclick="openPreview('Documents/JanseDeWit_CaseNote.pdf', 'Janse De Wit v De Wit NO Analysis')" class="btn-view">Access Case Analysis →</button>
+            </article>
+
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">SCA: Tax & Administrative Law</span>
+                    <h4 class="doc-title">CSARS v Erasmus: Challenging Irregular Steps</h4>
+                    <p class="doc-snippet"><strong>Strategic Analysis:</strong> A deconstruction of Rule 31 of the TAA and Section 80J of the ITA. Analyzing the limits of the Commissioner’s power to amend GAAR assessments mid-litigation.</p>
+                </div>
+                <button onclick="openPreview('Documents/CSARS_v_Erasmus_CaseNote.pdf', 'CSARS v Erasmus Analysis')" class="btn-view">Access Case Analysis →</button>
+            </article>
+
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">SCA: Company Law & Business Rescue</span>
+                    <h4 class="doc-title">AATIF v Vienings: Defining Recklessness</h4>
+                    <p class="doc-snippet"><strong>Strategic Analysis:</strong> An investigation into Section 424(1) liability. Analyzing the threshold between "commercial risk" and "gross negligence" in the context of Business Rescue Practitioners.</p>
+                </div>
+                <button onclick="openPreview('Documents/AATIF_v_Vienings_CaseNote.pdf', 'AATIF v Vienings Analysis')" class="btn-view">Access Case Analysis →</button>
+            </article>
+
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">SCA: Tax Law & Procedure</span>
+                    <h4 class="doc-title">Baseline Civil Contractors v CSARS: Pleading Discipline</h4>
+                    <p class="doc-snippet"><strong>Strategic Analysis:</strong> An investigation into Tax Court Rule 32(3). Analyzing the prohibition against introducing contradictory grounds of appeal and the sanctity of the initial objection.</p>
+                </div>
+                <button onclick="openPreview('Documents/Baseline_Civil_Contractors_CaseNote.pdf', 'Baseline Civil Contractors Analysis')" class="btn-view">Access Case Analysis →</button>
+            </article>
+
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">SCA: Mineral & Property Law</span>
+                    <h4 class="doc-title">Zincede Ngokwakho v Matatiele Municipality</h4>
+                    <p class="doc-snippet"><strong>Strategic Analysis:</strong> Investigating the supremacy of MPRDA statutory rights over common law property ownership and the limits of municipal eviction powers.</p>
+                </div>
+                <button onclick="openPreview('Documents/Zincede_Ngokwakho_CaseNote.pdf', 'Zincede Ngokwakho Analysis')" class="btn-view">Access Case Analysis →</button>
+            </article>
+
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">SCA & Constitutional Law</span>
+                    <h4 class="doc-title">Ncala v Park Avenue: Condonation & Equality</h4>
+                    <p class="doc-snippet"><strong>Strategic Analysis:</strong> A dual briefing on procedural condonation in CSOS appeals (Ncala) and the tripartite test for substantive equality (Van Heerden).</p>
+                </div>
+                <button onclick="openPreview('Documents/Ncala_VanHeerden_Brief.pdf', 'Ncala & Van Heerden Analysis')" class="btn-view">Access Dual Brief →</button>
+            </article>
+
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">High Court: Application Procedure</span>
+                    <h4 class="doc-title">Makhanya v Mabeng: Rei Vindicatio Bundle</h4>
+                    <p class="doc-snippet">Establishing ownership rights and navigating Gauteng Local Division procedures. Includes Notice of Motion and Founding Affidavit for asset recovery.</p>
+                </div>
+                <button onclick="openPreview('Documents/Makhanya_Litigation_Bundle.pdf', 'Makhanya v Mabeng Case File')" class="btn-view">Open Preview Window →</button>
+            </article>
+
+            <article class="doc-card">
+                <div>
+                    <span class="doc-category">Magistrate's Court: Action Procedure</span>
+                    <h4 class="doc-title">Keeton v Jacobs: Technical Defense Portfolio</h4>
+                    <p class="doc-snippet">A robust defense strategy featuring Rule 19(1) Exceptions (Vague & Embarrassing), Special Pleas (Prescription), and a Rule 20 Counterclaim.</p>
+                </div>
+                <button onclick="openPreview('Documents/Jacobs_Defense_Bundle.pdf', 'Keeton v Jacobs Case File')" class="btn-view">Open Preview Window →</button>
+            </article>
+        </div>
+    </main>
+    <footer>&copy; 2026 Brandon T. Malaba. Aspiring South African Legal Professional.</footer>
+
+    <script>
+        const overlay = document.getElementById('previewOverlay');
+        const frame = document.getElementById('pdfFrame');
+        const title = document.getElementById('previewTitle');
+
+        function openPreview(fileUrl, docTitle) {
+            // Set the PDF URL and Title
+            frame.src = fileUrl;
+            title.innerText = docTitle;
+            // Show the overlay
+            overlay.style.display = 'flex';
+            // Stop background scrolling
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePreview() {
+            overlay.style.display = 'none';
+            frame.src = ""; // Clear frame to stop loading
+            document.body.style.overflow = 'auto'; // Re-enable scroll
+        }
+
+        // Close if they click outside the window
+        window.onclick = function(event) {
+            if (event.target == overlay) {
+                closePreview();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandon T. Malaba | Legal Professional</title>
+    <meta name="description" content="Official Executive Profile of Brandon T. Malaba. LLB Graduate & Aspiring Candidate Attorney.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html { height: 100%; font-family: 'Poppins', sans-serif; background: #020617; color: #f8fafc; overflow-x: hidden; display: flex; flex-direction: column; }
+
+        /* HERO SECTION */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(2, 6, 23, 0.75), rgba(2, 6, 23, 0.85)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 5%;
+        }
+
+        .gold-text { color: #D4AF37; font-family: 'Playfair Display', serif; }
+
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 15px; letter-spacing: -1px; line-height: 1.1; }
+        .hero p.subtitle { font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 50px; font-weight: 300; }
+
+        /* NAVIGATION PILLARS */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .pillar-link {
+            padding: 50px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(15px);
+            border-radius: 4px;
+        }
+
+        .pillar-link:hover {
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateY(-12px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .pillar-link h3 {
+            font-family: 'Playfair Display', serif;
+            color: #D4AF37;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .pillar-link span { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- TICKER STYLING --- */
+        .ticker-wrap { 
+            background: rgba(15, 23, 42, 0.9); 
+            padding: 20px 0; 
+            border-top: 1px solid rgba(212, 175, 55, 0.3); 
+            overflow: hidden;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+        .ticker-move { 
+            display: flex; 
+            white-space: nowrap; 
+            width: max-content; 
+            animation: ticker-scroll 60s linear infinite; 
+        }
+        .ticker-item { 
+            padding: 0 60px; 
+            color: #D4AF37; 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+        @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.65rem;
+            color: #64748b;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .pillars { grid-template-columns: 1fr; gap: 15px; }
+            .hero { padding: 80px 5%; }
+            .pillar-link { padding: 35px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <p class="subtitle">South African Legal Professional</p>
+        <h1><span class="gold-text">Brandon T.</span> Malaba</h1>
+        
+        <div class="pillars">
+            <a href="cv.html" class="pillar-link">
+                <h3>Executive Profile</h3>
+                <span>Qualifications & Competencies</span>
+            </a>
+            <a href="articles.html" class="pillar-link">
+                <h3>Legal Portfolio</h3>
+                <span>Work Product & Research</span>
+            </a>
+            <a href="contact.html" class="pillar-link">
+                <h3>Secure Talent</h3>
+                <span>Consultation & Contact</span>
+            </a>
+        </div>
+    </section>
+
+    <div class="ticker-wrap">
+        <div class="ticker-move">
+            <div class="ticker-item">"The law is not a tool for the powerful, but a shield for the weak." — Chief Justice Mogoeng Mogoeng</div>
+            <div class="ticker-item">"Transformation is a permanent process... constantly questioning and innovating." — Chief Justice Pius Langa</div>
+            <div class="ticker-item">"The Constitution belongs to all of us, not just to the judges or the lawyers." — Chief Justice Arthur Chaskalson</div>
+            <div class="ticker-item">"We must ensure that the law is an instrument of justice and not a source of oppression." — Deputy Chief Justice Dikgang Moseneke</div>
+            <div class="ticker-item">"The law is not a tool for the powerful, but a shield for the weak." — Chief Justice Mogoeng Mogoeng</div>
+            <div class="ticker-item">"Transformation is a permanent process... constantly questioning and innovating." — Chief Justice Pius Langa</div>
+            <div class="ticker-item">"The Constitution belongs to all of us, not just to the judges or the lawyers." — Chief Justice Arthur Chaskalson</div>
+            <div class="ticker-item">"We must ensure that the law is an instrument of justice and not a source of oppression." — Deputy Chief Justice Dikgang Moseneke</div>
+        </div>
+    </div>
+
+    <footer>
+        Adherence to Excellence • Integrity in Practice • UFS Alumni
+    </footer>
+
+</body>
+</html>
