@@ -7,7 +7,6 @@
     <meta name="description" content="Official Executive Profile of Brandon T. Malaba. LLB Graduate & Aspiring Candidate Attorney.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* --- RESET & BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body, html { height: 100%; font-family: 'Poppins', sans-serif; background: #020617; color: #f8fafc; overflow-x: hidden; display: flex; flex-direction: column; }
 
@@ -24,17 +23,18 @@
             background-size: cover;
             background-position: center;
             padding: 60px 5%;
+            min-height: 100svh;
         }
 
         .gold-text { color: #D4AF37; font-family: 'Playfair Display', serif; }
 
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 15px; letter-spacing: -1px; line-height: 1.1; }
-        .hero p.subtitle { font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 50px; font-weight: 300; }
+        .hero p.subtitle { font-size: clamp(0.7rem, 2vw, 0.9rem); color: #94a3b8; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 50px; font-weight: 300; }
 
         /* NAVIGATION PILLARS */
         .pillars {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 25px;
             width: 100%;
             max-width: 1100px;
@@ -48,6 +48,7 @@
             color: #fff;
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 4px;
         }
 
@@ -58,10 +59,15 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
+        @media (hover: none) {
+            .pillar-link:hover { transform: none; box-shadow: none; }
+            .pillar-link:active { border-color: #D4AF37; background: rgba(212, 175, 55, 0.08); }
+        }
+
         .pillar-link h3 {
             font-family: 'Playfair Display', serif;
             color: #D4AF37;
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             margin-bottom: 12px;
             letter-spacing: 1px;
         }
@@ -76,6 +82,7 @@
             overflow: hidden;
             width: 100%;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         .ticker-move { 
             display: flex; 
@@ -83,12 +90,17 @@
             width: max-content; 
             animation: ticker-scroll 60s linear infinite; 
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ticker-move { animation: none; }
+        }
+
         .ticker-item { 
             padding: 0 60px; 
             color: #D4AF37; 
             font-family: 'Playfair Display', serif; 
             font-style: italic; 
-            font-size: 0.95rem;
+            font-size: clamp(0.75rem, 2vw, 0.95rem);
             letter-spacing: 1px;
         }
         @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -96,19 +108,37 @@
         footer {
             background: #020617;
             text-align: center;
-            padding: 25px;
-            font-size: 0.65rem;
+            padding: 25px 16px;
+            font-size: clamp(0.6rem, 1.5vw, 0.65rem);
             color: #64748b;
             letter-spacing: 3px;
             text-transform: uppercase;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
+            line-height: 1.8;
         }
 
-        /* Responsive adjustments */
+        /* TABLET */
         @media (max-width: 900px) {
-            .pillars { grid-template-columns: 1fr; gap: 15px; }
-            .hero { padding: 80px 5%; }
+            .pillars { grid-template-columns: 1fr; max-width: 480px; gap: 15px; }
+            .hero { padding: 60px 5%; }
             .pillar-link { padding: 35px 20px; }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .hero { padding: 40px 6%; justify-content: space-evenly; }
+            .hero h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
+            .hero p.subtitle { letter-spacing: 2px; margin-bottom: 30px; }
+        }
+
+        /* LANDSCAPE PHONE */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero { min-height: auto; padding: 30px 5%; }
+            .hero h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin-bottom: 8px; }
+            .hero p.subtitle { margin-bottom: 20px; }
+            .pillars { grid-template-columns: repeat(3, 1fr); max-width: 100%; gap: 12px; }
+            .pillar-link { padding: 16px 14px; }
+            .pillar-link h3 { font-size: 0.95rem; margin-bottom: 6px; }
         }
     </style>
 </head>
@@ -148,7 +178,7 @@
     </div>
 
     <footer>
-        Adherence to Excellence • Integrity in Practice • UFS Alumni
+        Adherence to Excellence &bull; Integrity in Practice &bull; UFS Alumni
     </footer>
 
 </body>
