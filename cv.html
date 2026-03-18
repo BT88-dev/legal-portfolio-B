@@ -40,10 +40,18 @@
             content: '';
             position: fixed; inset: 0;
             background:
-                radial-gradient(ellipse 100% 50% at 50% 0%,   rgba(212,175,55,0.07) 0%, transparent 60%),
-                radial-gradient(ellipse 60%  80% at 0%   100%, rgba(212,175,55,0.04) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+                linear-gradient(rgba(8,7,12,0.62), rgba(8,7,12,0.62)),
+                url('law_office_background.jpg') center center / cover no-repeat;
             z-index: 0; pointer-events: none;
+        }
+
+        /* Gold veil + ledger lines over the photo */
+        .bg-veil {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 100% 50% at 50% 0%, rgba(184,163,105,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 0% 100%, rgba(184,163,105,0.07) 0%, transparent 50%),
+                repeating-linear-gradient(180deg, transparent, transparent 60px, rgba(184,163,105,0.02) 60px, rgba(184,163,105,0.02) 61px);
         }
 
         body::after {
@@ -324,6 +332,8 @@
 
     <!-- NAV -->
     <div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 50% at 50% 0%,rgba(201,168,76,0.18) 0%,transparent 58%),radial-gradient(ellipse 60% 80% at 0% 100%,rgba(201,168,76,0.10) 0%,transparent 50%)"></div>
+
+    <div class="bg-veil"></div>
 
     <nav>
         <a href="index.html" class="nav-seal">
