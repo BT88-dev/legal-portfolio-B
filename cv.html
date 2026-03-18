@@ -12,15 +12,15 @@
             --obsidian:   #0c0c12;
             --chamber:    #13131c;
             --slate:      #1e1e2e;
-            --gold:       #D4AF37;
-            --gold-dim:   #a8882a;
-            --gold-pale:  #f0d87a;
-            --silver:     #cbd5e1;
-            --mist:       #64748b;
-            --parchment:  #f5f0e8;
-            --glass-gold: rgba(212, 175, 55, 0.10);
-            --glass-border: rgba(212, 175, 55, 0.18);
-            --glass-border-bright: rgba(212, 175, 55, 0.4);
+            --gold:       #C9A84C;
+            --gold-dim:   #a8782a;
+            --gold-pale:  #eddfa0;
+            --silver:     #d8e0eb;
+            --mist:       #7a8fa8;
+            --parchment:  #f7f2e9;
+            --glass-gold: rgba(201,168,76,0.14);
+            --glass-border: rgba(201,168,76,0.28);
+            --glass-border-bright: rgba(201,168,76,0.55);
             --font-serif: 'EB Garamond', serif;
             --font-cond:  'Barlow Condensed', sans-serif;
         }
@@ -58,7 +58,7 @@
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             padding: 0 56px; height: 72px;
             display: flex; align-items: center; justify-content: space-between;
-            background: rgba(5,5,8,0.75);
+            background: rgba(8,7,12,0.55);
             backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid var(--glass-border);
         }
@@ -91,8 +91,8 @@
         .sidebar { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 18px; }
 
         .glass-panel {
-            background: var(--glass-gold);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(12,10,18,0.52);
+            backdrop-filter: blur(28px) saturate(130%); -webkit-backdrop-filter: blur(28px) saturate(130%);
             border: 1px solid var(--glass-border);
             border-radius: 2px;
             padding: 36px 28px;
@@ -166,7 +166,7 @@
             cursor: pointer; text-decoration: none; text-align: center;
             transition: background 0.3s, border-color 0.3s;
         }
-        .btn-ghost:hover { background: var(--glass-gold); border-color: var(--gold); }
+        .btn-ghost:hover { background: rgba(12,10,18,0.52); border-color: var(--gold); }
 
         .vault-label { font-size: 0.55rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); opacity: 0.7; text-align: center; margin-bottom: 12px; }
 
@@ -181,7 +181,7 @@
             color: var(--mist); cursor: pointer; width: 100%;
             transition: border-color 0.3s, background 0.3s, color 0.3s;
         }
-        .vault-item:hover { border-color: var(--gold); background: var(--glass-gold); color: var(--gold); }
+        .vault-item:hover { border-color: var(--gold); background: rgba(12,10,18,0.52); color: var(--gold); }
         .vault-item .lock { font-size: 0.7rem; opacity: 0.5; }
 
         .location-pill { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px; font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; color: var(--mist); opacity: 0.45; border-top: 1px solid var(--glass-border); margin-top: 4px; }
@@ -190,8 +190,8 @@
         .content-col { display: flex; flex-direction: column; gap: 20px; }
 
         .cv-section {
-            background: var(--glass-gold);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(12,10,18,0.52);
+            backdrop-filter: blur(28px) saturate(130%); -webkit-backdrop-filter: blur(28px) saturate(130%);
             border: 1px solid var(--glass-border);
             border-radius: 2px;
             padding: 44px 48px;
@@ -279,7 +279,7 @@
         /* ── SECURE MODAL ── */
         .modal-overlay { display: none; position: fixed; inset: 0; z-index: 9100; background: rgba(5,5,8,0.94); backdrop-filter: blur(16px); align-items: center; justify-content: center; }
         .modal-overlay.open { display: flex; }
-        .modal-box { background: var(--glass-gold); backdrop-filter: blur(24px); border: 1px solid var(--glass-border-bright); border-radius: 2px; padding: 52px; width: 90%; max-width: 420px; text-align: center; position: relative; }
+        .modal-box { background: rgba(12,10,18,0.52); backdrop-filter: blur(24px); border: 1px solid var(--glass-border-bright); border-radius: 2px; padding: 52px; width: 90%; max-width: 420px; text-align: center; position: relative; }
         .modal-close { position: absolute; top: 18px; right: 22px; background: none; border: none; font-size: 1.2rem; color: var(--mist); cursor: pointer; opacity: 0.5; transition: opacity 0.2s; }
         .modal-close:hover { opacity: 1; }
         .modal-icon { font-size: 1.8rem; margin-bottom: 18px; color: var(--gold); }
@@ -323,7 +323,7 @@
 <body>
 
     <!-- NAV -->
-    <div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 50% at 50% 0%,rgba(212,175,55,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 0% 100%,rgba(212,175,55,0.07) 0%,transparent 50%)"></div>
+    <div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 50% at 50% 0%,rgba(201,168,76,0.18) 0%,transparent 58%),radial-gradient(ellipse 60% 80% at 0% 100%,rgba(201,168,76,0.10) 0%,transparent 50%)"></div>
 
     <nav>
         <a href="index.html" class="nav-seal">
@@ -347,7 +347,7 @@
                     <img src="profile.jpg" alt="Brandon T. Malaba" class="profile-photo">
                 </div>
                 <h2 class="profile-name">Brandon T. Malaba</h2>
-                <p class="profile-title">Candidate Attorney · LLB (UFS)</p>
+                <p class="profile-title">Candidate Attorney · LLB (UFS) · Available 2026</p>
                 <div class="stat-row">
                     <div class="stat-box"><strong>LLB</strong><span>UFS</span></div>
                     <div class="stat-box"><strong>PVT</strong><span>400h</span></div>
@@ -372,12 +372,12 @@
 
             <div class="cv-section">
                 <p class="section-eyebrow">Professional Narrative</p>
-                <h2 class="section-heading">Executive Summary</h2>
+                <h2 class="section-heading">Professional Summary</h2>
                 <div class="pull-quote">
                     <p>"In the theater of law, technical proficiency is the entry fee — but strategic foresight is the winning edge. I don't process files; I architect solutions."</p>
                 </div>
                 <p class="body-text">
-                    An LLB graduate and aspiring Candidate Attorney defined by a <strong>high-performance mindset</strong>. My legal training at the University of the Free State forged a disciplined analytical engine capable of navigating complex mercantile and corporate environments. Having completed a <strong>400-hour intensive PVT programme</strong>, I have transitioned from theory to <strong>substantive execution</strong> — specialising in identifying legal friction through precision-drafted <em>Notices of Exception</em>, <em>Special Pleas</em>, and procedural strategy. My value proposition is a hybrid of <em>classical rigour</em> and <em>digital velocity</em>, leveraging CaseLines and LexisNexis to deliver results that withstand High Court scrutiny.
+                    An LLB graduate from the University of the Free State and aspiring Candidate Attorney defined by a <strong>high-performance mindset</strong>. Having completed a <strong>400-hour intensive PVT programme</strong>, I have transitioned from theory to substantive legal work — building analytical capability across civil procedure, commercial law, and constitutional frameworks. My areas of intended specialisation are <em>litigation</em> and <em>corporate law</em>, fields I am actively developing through SCA-level case analysis, procedural drafting, and independent legal research. My value proposition is a hybrid of <em>classical legal rigour</em> and <em>digital velocity</em> — leveraging CaseLines and LexisNexis to deliver work product that meets the standards of a high-performance practice from day one.
                 </p>
             </div>
 
@@ -387,34 +387,69 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div>
-                            <p class="timeline-date">2023 — Present</p>
-                            <p class="timeline-org">Law Firm / Chambers</p>
+                            <p class="timeline-date">Aug — Oct 2024</p>
+                            <p class="timeline-org">Simane Attorneys</p>
                         </div>
                         <div>
-                            <h3 class="timeline-role">Candidate Attorney — Litigation & Corporate</h3>
-                            <p class="timeline-desc">Substantive litigation support across High Court and Magistrates' Court matters. Drafting of pleadings, notices, and heads of argument. Active management of case files via CaseLines/Court Online with rapid precedent synthesis through LexisNexis.</p>
+                            <h3 class="timeline-role">Legal Intern</h3>
+                            <p class="timeline-desc">Practical exposure across legal research, legal drafting, and case preparation. Assisted attorneys with administrative functions, observed court proceedings, and collaborated directly with attorneys and clients on active matters.</p>
                             <div class="timeline-tags">
-                                <span class="tag-chip">High Court</span>
-                                <span class="tag-chip">Pleadings</span>
-                                <span class="tag-chip">CaseLines</span>
-                                <span class="tag-chip">LexisNexis</span>
-                                <span class="tag-chip">Civil Procedure</span>
+                                <span class="tag-chip">Legal Research</span>
+                                <span class="tag-chip">Legal Drafting</span>
+                                <span class="tag-chip">Case Preparation</span>
+                                <span class="tag-chip">Client Liaison</span>
+                                <span class="tag-chip">Court Observation</span>
                             </div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div>
-                            <p class="timeline-date">2022 — 2023</p>
+                            <p class="timeline-date">May — Aug 2025</p>
+                            <p class="timeline-org">IPCE Law School, Rosebank</p>
+                        </div>
+                        <div>
+                            <h3 class="timeline-role">400-Hour PVT Programme</h3>
+                            <p class="timeline-desc">Completed the full 400-hour Practical Vocational Training programme — covering client counselling & interviewing, alternative dispute resolution, case management, drafting of pleadings, affidavits, and heads of argument, and CaseLines workflow. Ref: 000D51/202502.</p>
+                            <div class="timeline-tags">
+                                <span class="tag-chip">Pleadings & Affidavits</span>
+                                <span class="tag-chip">Client Counselling</span>
+                                <span class="tag-chip">ADR</span>
+                                <span class="tag-chip">CaseLines</span>
+                                <span class="tag-chip">Ref: 000D51/202502</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div>
+                            <p class="timeline-date">2017 — 2018</p>
                             <p class="timeline-org">University of the Free State</p>
                         </div>
                         <div>
-                            <h3 class="timeline-role">PVT Programme — Practical Vocational Training</h3>
-                            <p class="timeline-desc">Completed 400-hour intensive practical training covering court procedure, client consultations, legal drafting, and professional ethics. Exposure across civil, criminal, and corporate law environments.</p>
+                            <h3 class="timeline-role">Vice Prime — House Tswelopele</h3>
+                            <p class="timeline-desc">Elected head of the Disciplinary Committee at on-campus residence. Responsible for maintaining residence infrastructure and resolving disciplinary matters arising from students. Multi-stakeholder liaison role requiring negotiation and crisis management.</p>
                             <div class="timeline-tags">
-                                <span class="tag-chip">Legal Drafting</span>
-                                <span class="tag-chip">Client Consultation</span>
-                                <span class="tag-chip">Professional Ethics</span>
-                                <span class="tag-chip">PVT Certified</span>
+                                <span class="tag-chip">Leadership</span>
+                                <span class="tag-chip">Disciplinary Committee</span>
+                                <span class="tag-chip">Negotiation</span>
+                                <span class="tag-chip">Crisis Management</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div>
+                            <p class="timeline-date">Feb — Jun 2017</p>
+                            <p class="timeline-org">Dept. of Natural &amp; Agricultural Sciences, UFS</p>
+                        </div>
+                        <div>
+                            <h3 class="timeline-role">Student Computer Assistant</h3>
+                            <p class="timeline-desc">Provided peer instruction and practical support to students enrolled in CSIL1511 — a foundational computer literacy module. Delivered hands-on facilitation in MS Word 2013, MS PowerPoint 2013, and MS Excel 2013, building strong personal proficiency across the full Microsoft Office Suite in a structured academic environment.</p>
+                            <div class="timeline-tags">
+                                <span class="tag-chip">MS Word 2013</span>
+                                <span class="tag-chip">MS PowerPoint 2013</span>
+                                <span class="tag-chip">MS Excel 2013</span>
+                                <span class="tag-chip">Peer Instruction</span>
+                                <span class="tag-chip">CSIL1511</span>
                             </div>
                         </div>
                     </div>
@@ -445,16 +480,16 @@
                 <h2 class="section-heading">Strategic Competencies</h2>
                 <div class="competency-grid">
                     <div class="competency-card">
-                        <h4>Litigation Defence</h4>
-                        <p>Procedural neutralisation via Rule 19(1) Notices and Special Pleas. High-precision drafting of pleadings that withstand High Court scrutiny.</p>
+                        <h4>Litigation — Developing</h4>
+                        <p>Procedural drafting via Rule 19(1) Notices and Special Pleas. Academic and PVT-level exposure to pleadings, exceptions, and civil action procedure.</p>
                     </div>
                     <div class="competency-card">
                         <h4>Digital Jurisprudence</h4>
                         <p>Advanced proficiency in CaseLines/Court Online. Rapid precedent synthesis and legal research via LexisNexis SA.</p>
                     </div>
                     <div class="competency-card">
-                        <h4>Corporate Advisory</h4>
-                        <p>Mergers, contract review, regulatory compliance. Translating complex legal frameworks into actionable business strategy.</p>
+                        <h4>Corporate Law — Interest</h4>
+                        <p>Academic grounding in Companies Act 71 of 2008, business rescue, and commercial contracts. Targeted area of intended practice.</p>
                     </div>
                     <div class="competency-card">
                         <h4>Succession & Estates</h4>
@@ -484,8 +519,12 @@
                         <div class="skill-track"><div class="skill-fill" style="width:90%;animation-delay:0.3s"></div></div>
                     </div>
                     <div class="skill-row">
-                        <div class="skill-header"><span class="skill-name">Corporate & Commercial Law</span><span class="skill-pct">80%</span></div>
-                        <div class="skill-track"><div class="skill-fill" style="width:80%;animation-delay:0.4s"></div></div>
+                        <div class="skill-header"><span class="skill-name">Microsoft Office Suite</span><span class="skill-pct">88%</span></div>
+                        <div class="skill-track"><div class="skill-fill" style="width:88%;animation-delay:0.4s"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-header"><span class="skill-name">Corporate & Commercial Law</span><span class="skill-pct">75%</span></div>
+                        <div class="skill-track"><div class="skill-fill" style="width:75%;animation-delay:0.5s"></div></div>
                     </div>
                 </div>
             </div>
@@ -497,17 +536,92 @@
                     <div class="edu-icon">⚖</div>
                     <div>
                         <p class="edu-degree">Bachelor of Laws (LLB)</p>
-                        <p class="edu-inst">University of the Free State</p>
-                        <p class="edu-year">Graduated 2022</p>
+                        <p class="edu-inst">University of the Free State &nbsp;·&nbsp; GPA 63.25%</p>
+                        <p class="edu-year">Graduated 20 April 2023 &nbsp;·&nbsp; Distinctions: Legal Practice, Law of Persons, Legal Skills</p>
                     </div>
                 </div>
                 <div class="edu-item">
                     <div class="edu-icon">◆</div>
                     <div>
-                        <p class="edu-degree">Practical Vocational Training Certificate</p>
-                        <p class="edu-inst">400-Hour Intensive Programme</p>
-                        <p class="edu-year">2023</p>
+                        <p class="edu-degree">400-Hour PVT Programme</p>
+                        <p class="edu-inst">IPCE Law School, Rosebank &nbsp;·&nbsp; Ref: 000D51/202502</p>
+                        <p class="edu-year">May – August 2025 &nbsp;·&nbsp; Issued 29 August 2025</p>
                     </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-icon">★</div>
+                    <div>
+                        <p class="edu-degree">Golden Key International Honour Society</p>
+                        <p class="edu-inst">Top 15% — Faculty of Law, UFS &nbsp;·&nbsp; Membership No. 14259840</p>
+                        <p class="edu-year">Academic Year 2015</p>
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-icon">◎</div>
+                    <div>
+                        <p class="edu-degree">Matric — National Senior Certificate</p>
+                        <p class="edu-inst">Freedom Community College &nbsp;·&nbsp; Distinctions: IsiZulu FAL & Life Orientation</p>
+                        <p class="edu-year">2013</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXTRACURRICULAR -->
+            <div class="cv-section">
+                <p class="section-eyebrow">Beyond the Books</p>
+                <h2 class="section-heading">Extra-Curricular &amp; Achievements</h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div>
+                            <p class="timeline-date">UFS</p>
+                            <p class="timeline-org">Debate Society</p>
+                        </div>
+                        <div>
+                            <h3 class="timeline-role">UFS Debate Society</h3>
+                            <p class="timeline-desc">Active member of the University of the Free State Debate Society — developing persuasive oratory, structured argumentation, and the ability to construct and rebut legal-style reasoning under pressure. A directly transferable skill set for advocacy and client-facing legal practice.</p>
+                            <div class="timeline-tags">
+                                <span class="tag-chip">Persuasive Oratory</span>
+                                <span class="tag-chip">Argumentation</span>
+                                <span class="tag-chip">Advocacy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div>
+                            <p class="timeline-date">UFS</p>
+                            <p class="timeline-org">Kovsie Choir</p>
+                        </div>
+                        <div>
+                            <h3 class="timeline-role">UFS Kovsie Choir</h3>
+                            <p class="timeline-desc">Member of the University of the Free State Kovsie Choir — one of South Africa's most recognised university choral ensembles. Participation reflects discipline, teamwork, and the ability to perform under pressure as part of a collective.</p>
+                            <div class="timeline-tags">
+                                <span class="tag-chip">Teamwork</span>
+                                <span class="tag-chip">Discipline</span>
+                                <span class="tag-chip">Performance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div>
+                            <p class="timeline-date">2017</p>
+                            <p class="timeline-org">UFS Residence League</p>
+                        </div>
+                        <div>
+                            <h3 class="timeline-role">Basketball — 1st Team Player of the Year</h3>
+                            <p class="timeline-desc">Awarded 1st Team Basketball Player of the Year at UFS (2017). Competed in the UFS Residence League across multiple seasons, earning 2 gold medals and 3 silver medals. A track record of performing at the top of a competitive environment — individually and as part of a team.</p>
+                            <div class="timeline-tags">
+                                <span class="tag-chip">Player of the Year — 2017</span>
+                                <span class="tag-chip">2× Gold Medal</span>
+                                <span class="tag-chip">3× Silver Medal</span>
+                                <span class="tag-chip">UFS Residence League</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -534,7 +648,7 @@
         <a href="index.html" class="footer-brand"><strong>Brandon T.</strong> Malaba</a>
         <p class="footer-copy">&copy; 2026 &nbsp;·&nbsp; LLB (UFS) &nbsp;·&nbsp; All rights reserved</p>
         <ul class="footer-links">
-            <li><a href="#">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/brandon-malaba-7099a7a7/" target="_blank">LinkedIn</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="articles.html">Repository</a></li>
         </ul>
@@ -544,7 +658,13 @@
     <div class="pdf-modal" id="pdfModal">
         <div class="pdf-toolbar">
             <span class="pdf-title" id="pdfTitle">Document</span>
-            <button class="pdf-close" onclick="closePDF()">✕ Close</button>
+            <div style="display:flex;gap:10px;align-items:center;">
+                <a id="pdfDownload" href="" download
+                   style="background:none;border:1px solid var(--glass-border-bright);color:var(--gold);padding:8px 18px;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;transition:border-color 0.3s,color 0.3s;font-family:var(--font-cond);">
+                   ↓ Download
+                </a>
+                <button class="pdf-close" onclick="closePDF()">✕ Close</button>
+            </div>
         </div>
         <iframe class="pdf-frame" id="pdfFrame" src=""></iframe>
     </div>
@@ -569,11 +689,15 @@
         function openPDF(file, title) {
             document.getElementById('pdfTitle').textContent = title;
             document.getElementById('pdfFrame').src = file;
+            const dl = document.getElementById('pdfDownload');
+            if (dl) { dl.href = file; dl.download = title.replace(/[^a-zA-Z0-9_\-\.]/g,'_') + '.pdf'; }
             document.getElementById('pdfModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
         }
         function closePDF() {
             document.getElementById('pdfModal').classList.remove('open');
             document.getElementById('pdfFrame').src = '';
+            document.body.style.overflow = '';
         }
         function openSecure(file, title) {
             pendingSecureFile = file;
