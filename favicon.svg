@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background — Petra deep terracotta -->
+  <rect width="32" height="32" rx="6" fill="#5C2018"/>
+  <!-- Inner border highlight -->
+  <rect x="1" y="1" width="30" height="30" rx="5" fill="none" stroke="#BC4639" stroke-width="0.8" opacity="0.6"/>
+  <!-- S -->
+  <text x="4" y="23" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#f8f0eb" letter-spacing="-1">S</text>
+  <!-- B -->
+  <text x="16" y="23" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#BC4639" letter-spacing="-1">B</text>
+</svg>
